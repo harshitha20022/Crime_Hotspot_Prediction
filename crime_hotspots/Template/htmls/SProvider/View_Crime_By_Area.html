@@ -1,0 +1,79 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#f1ecec;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			.tweettext{
+
+    border: 2px solid yellowgreen;
+    width: 1104px;
+    height: 442px;
+    overflow: scroll;
+    
+}
+		.style1 {
+	color: #eb8a8a;
+	font-weight: bold;
+}
+        .style2 {color: #FFFF00}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+                    <p class="text-uppercase pull-center style1">VIEW ALL CRIME AREA ACTIVITY DATA SET DETAILS  !!! </p>
+
+                 <table border="2" bordercolor="#000000">
+                      <tr><td bgcolor="#ffffff"><span class="style8">Crime City</span></td>
+                      <td bgcolor="#ffffff"><span class="style8">Area Name</span></td>
+                       <td bgcolor="#ffffff"><span class="style8">Crime Type</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Number Of Crimes</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Crime Evidence</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Action Taken</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Crime DateTime</span></td>
+                      </tr>
+                            {% for object in objs %}
+                      <tr>
+                                        <td style="color:#eb8a8a; font-size:20px; font-family:fantasy" ><div align="center">{{object.City}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px;  "><div align="center">{{object.names}}</div></td>
+                                             <td  bgcolor="#FF00FF" style="font-family:monospace; font-size:19px; "><div align="center">{{object.Crime_Type}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Number_Of_Crimes}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Crime_Evidence}}</div></td>
+                                        <td bgcolor="#ffffff" style="font-family:monospace; font-size:19px; "><div align="center">{{object.Action_Taken}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Crime_DateTime}}</div></td>
+
+                                  </tr>
+
+                                        {% endfor %}
+                      </table>
+
+
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    <tr>

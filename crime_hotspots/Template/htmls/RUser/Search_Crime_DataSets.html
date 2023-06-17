@@ -1,0 +1,121 @@
+{% extends 'RUser/design.html' %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#f1ecec;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			.tweettext{
+
+    border: 2px solid black;
+    width: 1104px;
+    height: 442px;
+    overflow: scroll;
+    
+}
+		.style1 {
+	color: #eb8a8a;
+	font-weight: bold;
+}
+.style4 {color: #000000; font-weight: bold; }
+        .style5 {color: #000000}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+
+                    <form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">SEARCH CRIME DATA DETAILS BY K-Neareast Neighbour(KNN)!!! </p>
+                            <hr>
+
+                                {% csrf_token %}
+                                <table width="568" align="center">
+                                  <tr>
+                                    <td width="287" height="44" bgcolor="#ffffff"><div align="center"><span class="style4 style2">Enter Crime Name or Related Keyword Here </span></div></td>
+                                    <td width="269"><input type="text" name="keyword" ></td>
+                                  </tr>
+  <td><p>&nbsp; </p>
+          <p>
+            <input name="submit" type="submit" class="style1" value="Search">
+        </p></td>
+  </tr>
+                                </table>
+						 </fieldset>
+				  </form>
+
+
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">VIEW SEARCHED CRIME DATA SET DETAILS  !!! </p>
+                            <hr>
+                            <div class="tweettext">
+                              <table border="2" bordercolor="#000000">
+                      <tr><td bgcolor="#ffffff"><span class="style8">Crime City</span></td>
+                      <td bgcolor="#ffffff"><span class="style8">Area Name</span></td>
+                      <td bgcolor="#ffffff"><span class="style8">Population</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Hotspot Name</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Street Name</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Address</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Crime Type</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Number Of Crimes</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Crime Evidence</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Action Taken</span></td>
+                          <td bgcolor="#ffffff"><span class="style8">Crime DateTime</span></td>
+                      </tr>
+                            {% for object in objs %}
+                      <tr>
+                                        <td style="color:#eb8a8a; font-size:20px; font-family:fantasy" ><div align="center">{{object.City}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px;  "><div align="center">{{object.names}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.population}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Hotspot_Name}}</div></td>
+                                         <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Street_name}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Address}}</div></td>
+                                        <td  bgcolor="#FF00FF" style="font-family:monospace; font-size:19px; "><div align="center">{{object.Crime_Type}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Number_Of_Crimes}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Crime_Evidence}}</div></td>
+                                        <td bgcolor="#ffffff" style="font-family:monospace; font-size:19px; "><div align="center">{{object.Action_Taken}}</div></td>
+                                        <td style="font-family:monospace; font-size:19px; "><div align="center">{{object.Crime_DateTime}}</div></td>
+
+                                  </tr>
+
+                                        {% endfor %}
+                      </table>
+
+                            </div>
+
+
+
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    <tr>

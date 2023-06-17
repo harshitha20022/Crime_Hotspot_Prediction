@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Provider</title>
+<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+<style>
+    body{
+	background-size:cover;
+	font-family: 'Russo One', sans-serif;
+	background-color: #000000;
+    }
+    h1{
+    color:white;
+    }
+.topnav {
+  overflow: hidden;
+  background-color: rgb(92, 45, 59);
+}
+
+.topnav a {
+  float: left;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ebbaba;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #8e4fd1;
+  color: white;
+}
+.style1 {color: #eb8a8a}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body>
+
+<h1 class="style1">Comparison of Machine Learning Algorithms for Predicting Crime Hotspots</h1>
+
+<div  class="topnav">
+
+  <td><a  href="{% url 'View_Crime_Details' %}">All Crime Data Set Details</a></td>
+    <a href="{% url 'Search_Crime' %}">Search Crime Details(KNN)</a>
+    <a href="{% url 'View_All_Crime_Prediction_Details' %}">Prediction of Crime Hotspots(SVM)</a>
+    <a href="{% url 'View_Crime_By_Area' %}">Crime Details By Area Wise </a>
+    <a href="{% url 'View_Crime_By_Date' %}">Crime Details By Date Wise</a>
+    <a href="{% url 'View_Crime_Found_Ratio' %}">Searched Crime Ratio(SVM)</a>
+    <a href="{% url 'View_Search_Ratio' %}">Searched Crime Ratio(KNN)</a>
+    <td><a href="{% url 'charts' 'line' %}">Crime Count Results</a></td>
+    <td><a href="{% url 'likeschart' 'bar' %}">Crime Found Ratio(BAR GRAPH) </a></td>
+    <td>  <a href="{% url 'View_Remote_Users' %}">All Remote Users</a></td>
+
+  <td><a href="{% url 'login'  %}">Logout</a></td>
+</div>
+
+
+
+<div class="mainholder">
+{% block researchblock %}
+{% endblock %}
+</div>
+</body>
+</html>
